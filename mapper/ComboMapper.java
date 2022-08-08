@@ -2,11 +2,28 @@ package com.happysnaker.mapper;
 
 import com.happysnaker.pojo.Combo;
 import com.happysnaker.pojo.ComboDish;
+<<<<<<< HEAD
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 
+=======
+import org.apache.ibatis.annotations.MapKey;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 由于数据库的设计，其中诸如查询冻结数量等方法可共用 DishMapper 中的方法
+ * @author Happysnaker
+ * @description
+ * @date 2021/10/22
+ * @email happysnaker@foxmail.com
+ */
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 @Mapper
 public interface ComboMapper {
     /**
@@ -21,7 +38,11 @@ public interface ComboMapper {
      * @return Map
      */
     @MapKey("combo_id")
+<<<<<<< HEAD
     List<ComboDish> queryComboDish();
+=======
+    List<Map<String, Object>> queryComboDish();
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 
     /**
      * 获取套餐菜品
@@ -38,6 +59,7 @@ public interface ComboMapper {
      */
     List<String> queryDishTag(@Param("id") int id);
 
+<<<<<<< HEAD
     int insertComboDish(ComboDish comboDish);
 
     int insertCombo(Combo combo);
@@ -80,4 +102,6 @@ public interface ComboMapper {
             "dish_num = #{dishNum} " +
             "WHERE combo_id = #{comboId} ")
     int updateComboDish(ComboDish comboDish);
+=======
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 }

@@ -1,6 +1,9 @@
 package com.happysnaker.mapper;
 
+<<<<<<< HEAD
 import com.happysnaker.pojo.Classification;
+=======
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 import com.happysnaker.pojo.Dish;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -9,6 +12,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 
 @Mapper
 @Repository
@@ -70,6 +74,29 @@ public interface DishMapper {
      * @return
      */
     List<Dish> getDiscountDishListByPagination(@Param("offset") int offset, @Param("num") int num, @Param("keyword") String keyword, @Param("type") Integer discountType);
+=======
+/**
+ * @author Happysnaker
+ * @description
+ * @date 2021/10/22
+ * @email happysnaker@foxmail.com
+ */
+@Mapper
+@Repository
+public interface DishMapper {
+    /**
+     * 获取所有菜品 ID，包括套餐
+     * @return
+     */
+    @Select("SELECT id FROM dms_dish UNION SELECT id FROM dms_combo")
+    List<Integer> queryAllDishId();
+
+    /**
+     * 查询 dish 表中所有的信息
+     * @return
+     */
+    List<Dish> queryDishes();
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 
     /**
      * 查询指定菜品的信息，这个函数仅仅只会读取 dish 表中的信息
@@ -86,6 +113,16 @@ public interface DishMapper {
     List<Dish> queryDishInfo(@Param("storeId") int storeId);
 
     /**
+<<<<<<< HEAD
+=======
+     * 获取热销榜单中的菜品信息，通过这个方法返回的 Dish 类只包括 dish 表中的全部信息 和 关联的 tag，不包含 discount 与 dish_stock 信息
+     * @param n 表示获取前几的菜品，例如当 n = 10 时，则返回销售量前十的菜品
+     * @return 以链表的形式封装
+     */
+    List<Dish> queryHotSaleDish(@Param("n") int n);
+
+    /**
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
      * 获取新品推荐榜单中的菜品信息，通过这个方法返回的 Dish 类只包括 dish 表中的全部信息 和 关联的 tag，不包含 discount 与 dish_stock 信息
      * @param n 表示获取前几的菜品，例如当 n = 10 时，则返回销售量前十的菜品
      * @return 以链表的形式封装
@@ -99,6 +136,17 @@ public interface DishMapper {
      */
     List<String> queryDishTag(@Param("id") int id);
 
+<<<<<<< HEAD
+=======
+    /**
+     * 获取指定店铺中所有菜品的库存
+     * @param storeId 店铺的ID
+     * @return 返回一个Map，key代表菜品id，val是一个哈希表，其中可以通过 get("stock") 得到对应菜品id的库存量
+     */
+    @MapKey("dish_id")
+    Map<Integer, Map> queryDishInventory(@Param("storeId") int storeId);
+
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 
     /**
      * 获取 queryClassification 表中的全部信息
@@ -128,7 +176,11 @@ public interface DishMapper {
      * @param val 增加或者减少的值，当这个值为负时表示减少，所有的更改都是在原值上修改的
      * @return 影响的记录数，如果成功，则为1，否则为0
      */
+<<<<<<< HEAD
     @Update("UPDATE dish SET sale = sale + #{val}")
+=======
+    @Update("UPDATE dms_dish SET sale = sale + #{val}")
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
     int updateDishSale(@Param("dishId") int dishId, @Param("val") int val);
 
     /**
@@ -139,8 +191,13 @@ public interface DishMapper {
      * @param val 单日销量
      * @return
      */
+<<<<<<< HEAD
     @Insert("INSERT INTO dish_sale SELECT #{dishId}, #{data}, #{storeId}, #{val}")
     int insertDishSaleLog(@Param("dishId") int dishId, @Param("data")Timestamp data, @Param("storeId") int storeId, @Param("val") int val);
+=======
+    @Insert("INSERT INTO dms_dish_sale SELECT #{data}, #{storeId}, #{val}")
+    int insertSaleLog(@Param("data")Timestamp data, @Param("storeId") int storeId, @Param("val") int val);
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 
     /**
      * 增加或减少指定店铺中指定菜品的喜欢数量
@@ -154,10 +211,26 @@ public interface DishMapper {
      * 增加或减少指定店铺中指定菜品的库存
      * @param storeId 店铺ID
      * @param dishId 菜品ID
+<<<<<<< HEAD
      * @param newVal 新的值
      * @return 影响的记录数，如果成功，则为1，否则为0
      */
     int updateDishInventory(@Param("storeId") int storeId, @Param("dishId") int dishId, @Param("val") int newVal);
+=======
+     * @param val 增加或者减少的值，当这个值为负时表示减少，所有的更改都是在原值上修改的
+     * @return 影响的记录数，如果成功，则为1，否则为0
+     */
+    int updateDishInventory(@Param("storeId") int storeId, @Param("dishId") int dishId, @Param("val") int val);
+
+    /**
+     * 乐观的扣减库存的方法
+     * @param storeId
+     * @param dishId
+     * @param val 注意，此值必须是个正数，表示要扣减的数目
+     * @return
+     */
+    int optimisticDeductInventory(@Param("storeId") int storeId, @Param("dishId") int dishId, @Param("val") int val);
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 
     /**
      * 当updateDishInventory方法调用失败时，此时数据库没有该记录，需要插入一条记录
@@ -167,5 +240,8 @@ public interface DishMapper {
      * @return 影响的记录数，如果成功，则为1，否则为0
      */
     int insertDishInventory(@Param("storeId") int storeId, @Param("dishId") int dishId, @Param("val") int val);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 }

@@ -1,5 +1,6 @@
 package com.happysnaker.mapper;
 
+<<<<<<< HEAD
 import com.happysnaker.pojo.Store;
 import com.happysnaker.pojo.StoreTable;
 import org.apache.ibatis.annotations.*;
@@ -29,6 +30,25 @@ public interface StoreMapper {
     int getIdByName(String name);
 
 
+=======
+
+
+import com.happysnaker.pojo.Store;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+/**
+ * @author Happysnaker
+ * @description
+ * @date 2021/10/22
+ * @email happysnaker@foxmail.com
+ */
+@Mapper
+public interface StoreMapper {
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
     @Select("SELECT id FROM sms_store")
     List<Integer> queryAllStoreId();
 
@@ -44,6 +64,7 @@ public interface StoreMapper {
      * @return STORE
      */
     Store getStore(@Param("storeId") int storeId);
+<<<<<<< HEAD
 
     /**
      * 插入店铺
@@ -71,4 +92,6 @@ public interface StoreMapper {
     @Update("UPDATE `sms_store_table` SET capacity = #{capacity} " +
             "WHERE store_id = #{storeId} AND table = #{table}")
     int updateStoreTable(StoreTable st);
+=======
+>>>>>>> 06e8e2d0dc2bb8bcc0a6daa57c6b2f3e8eb0a21d
 }
