@@ -7,12 +7,13 @@ Page({
      */
     data: {
         messages: [
-            // {title: "标题1", concent: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
-            // {title: "标题2", concent: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
-            // {title: "标3", concent: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
-            // {title: "标题4", concent: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
-            // {title: "标题5", concent: "已退款，请检查", id: 1, type: 0, storeName: "中国店"}
+             {title: "标题1", content: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
+            // {title: "标题2", content: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
+            // {title: "标3", content: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
+            // {title: "标题4", content: "已退款，请检查", id: 1, type: 1, storeName: "中国店"},
+             {title: "标题5", content: "小程序更新了", id: 1, type: 0, storeName: ""}
          ],
+         // 消息不展开
         activeNames: ['1'],
     },
 
