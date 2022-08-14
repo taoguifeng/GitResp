@@ -9,8 +9,12 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
+import Navbar from './components/Navbar.vue'
+import Sidebar from './components/AppMain.vue'
+import AppMain from './components/Sidebar/SidebarItem.vue'
 import ResizeMixin from './mixin/ResizeHandler'
+// import { Navbar, Sidebar, AppMain } from './components'
+// import ResizeMixin from './mixin/ResizeHandler' 
 
 export default {
   name: 'layout',
