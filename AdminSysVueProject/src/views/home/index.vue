@@ -54,19 +54,19 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待支付订单<a href="#">(处理)</a></span>
-              <span style="float: right" class="color-danger">{{data.orderNum['1']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['1']}}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">确认中订单<a href="#">(处理)</a></span>
-              <span style="float: right" class="color-danger">{{data.orderNum['2']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['2']}}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">备餐中订单<a href="#">(处理)</a></span>
-              <span style="float: right" class="color-danger">{{data.orderNum['3']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['3']}}</span>
             </div>
           </el-col>
         </el-row>
@@ -74,19 +74,19 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待取餐订单<a href="#">(处理)</a></span>
-              <span style="float: right" class="color-danger">{{data.orderNum['5']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['5']}}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">配送中订单<a href="#">(处理)</a></span>
-              <span style="float: right" class="color-danger">{{data.orderNum['6']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['6']}}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">申请取消中<a href="#">(处理)</a></span>
-              <span style="float: right" class="color-danger">{{data.orderNum['8']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['8']}}</span>
             </div>
           </el-col>
         </el-row>
@@ -94,20 +94,20 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">待用餐订单</span>
-              <span style="float: right" class="color-danger">{{data.orderNum['4']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['4']}}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">已取消订单</span>
-              <span style="float: right" class="color-danger">{{data.orderNum['9']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['9']}}</span>
             </div>
           </el-col>
 
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">已完成订单</span>
-              <span style="float: right" class="color-danger">{{data.orderNum['7']}}</span>
+              <span style="float: right" class="color-danger" v-if="data.orderNum">{{data.orderNum['7']}}</span>
             </div>
           </el-col>
         </el-row>
@@ -350,7 +350,7 @@ export default {
       this.getData();
     },
     getHomeData() {
-      getData(this.queryList).then(res=> {
+      getData(this.queryList).then(res => {
         this.data = res.data;
         console.log("daaewa" + this.data,
         this.data.todayOrderCount);
