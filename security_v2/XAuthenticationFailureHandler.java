@@ -13,10 +13,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 登录失败操作
- * @author happysnakers
- */
+
 @Component
 public class XAuthenticationFailureHandler implements AuthenticationFailureHandler {
     @Override

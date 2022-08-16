@@ -18,12 +18,6 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Happysnaker
- * @description
- * @date 2021/12/2
- * @email happysnaker@foxmail.com
- */
 @Component
 public class XAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     @Autowired

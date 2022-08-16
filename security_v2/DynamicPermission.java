@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * 动态鉴权
- * @author happysnakers
- */
+
 @Component
 public class DynamicPermission {
 
