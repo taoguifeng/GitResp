@@ -13,12 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author Happysnaker
- * @description
- * @date 2021/12/9
- * @email happysnaker@foxmail.com
- */
+
 @Component
 public class XLogOutOncePerRequestFilter extends OncePerRequestFilter {
     @Autowired
