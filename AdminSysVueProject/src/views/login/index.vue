@@ -14,7 +14,7 @@
             style="width: 56px; height: 56px; color: #409eff"
           ></svg-icon>
         </div>
-        <h2 class="login-title color-main">XOrder-Admin</h2>
+        <h2 class="login-title color-main">在线点餐系统后台管理</h2>
         <el-form-item prop="username">
           <el-input
             name="username"
@@ -54,18 +54,18 @@
           >
             登录
           </el-button>
-          <el-button
+          <!-- <el-button
             style="width: 45%"
             type="primary"
             @click.native.prevent="handleTry"
           >
             获取体验账号
-          </el-button>
+          </el-button> -->
         </el-form-item>
       </el-form>
     </el-card>
     <img :src="login_center_bg" class="login-center-layout" />
-    <el-dialog
+    <!-- <el-dialog
       title="公众号二维码"
       :visible.sync="dialogVisible"
       :show-close="false"
@@ -90,7 +90,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" >确定</el-button>
       </span>
-    </el-dialog>
+    </el-dialog> -->
   </div>
 </template>
 
