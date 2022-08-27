@@ -162,7 +162,6 @@ export default {
       }
       this.$router.push("/" + tabPaneName);
     },
-
     //(1)移除标签，（2）返回前一个路由
     //删除: 需要当前索引 ，设置路由和高亮，上一个对象的index
     handleRemove(tabPaneName) {
@@ -183,7 +182,6 @@ export default {
       //删除当前关闭的路由标签
       this.editableTabs.splice(eleIndex, 1);
     },
-
     //退出登陆
     exitLogin() {
       ElMessageBox.confirm("真的要退出登陆吗?", "提示", {
