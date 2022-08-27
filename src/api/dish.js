@@ -8,7 +8,6 @@ export function dishList(params) {
     params,
   });
 }
-
 // 上架接口
 export function update_publish_status(data) {
   return request({
