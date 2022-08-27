@@ -4,7 +4,6 @@
       <el-table-column label="编号" width="100" align="center" prop="id">
         <template #default="scope">{{ scope.row.id }}</template>
       </el-table-column>
-
       <el-table-column label="菜品图片" width="120" align="center">
         <template #default="scope"
           ><img style="height: 80px" :src="scope.row.dishImg"
