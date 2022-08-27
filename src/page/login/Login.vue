@@ -45,29 +45,6 @@ const setFlag = () => {
   height: 100%;
   background-size: cover;
 }
-/* .loginbg1 {
-  position: absolute;
-  left: 50rem;
-  top: 45rem;
-  width: 30rem;
-  height: 50rem;
-  background-image: url(../../assets/login/decoration1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 1;
-} */
-
-/* .loginbg2 {
-  position: absolute;
-  right: 35rem;
-  top: 45rem;
-  width: 40rem;
-  height: 40rem;
-  background-image: url(../../assets/login/decoration2.png);
-  background-repeat: no-repeat;
-  z-index: 1;
-} */
-
 .loginBox {
   width: 62rem;
   height: 50rem;
