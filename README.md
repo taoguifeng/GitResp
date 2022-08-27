@@ -1,2 +1,2 @@
-# GitResp
-综合实训加油。
+# 技术使用：Vue 3 + Vite+element-plus
+
