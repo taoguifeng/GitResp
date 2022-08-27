@@ -6,7 +6,6 @@
   version "7.17.12"
   resolved "https://registry.npmmirror.com/@babel/parser/-/parser-7.17.12.tgz"
   integrity sha512-FLzHmN9V3AJIrWfOpvRlZCeVg/WLdicSnTMsLur6uDj9TT8ymUlG9XxURdW/XvuygK+2CW0poOJABdA4m/YKxA==
-
 "@ctrl/tinycolor@^3.4.1":
   version "3.4.1"
   resolved "https://registry.npmmirror.com/@ctrl/tinycolor/-/tinycolor-3.4.1.tgz"
