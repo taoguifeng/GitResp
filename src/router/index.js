@@ -58,6 +58,7 @@ const router = createRouter({
   routes, // `routes: routes` 的缩写
 });
 
+
 //进行路由拦截：当没有登陆标识，直接打回登陆页面，如何避免退回到 登陆页呢？
 router.beforeEach((to, from, next) => {
   if (to.path == "/login") {
