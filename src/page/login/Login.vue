@@ -1,7 +1,5 @@
 <template>
   <div class="login">
-   
-
     <div class="loginBox">
       <h3>用户登录</h3>
       <span class="deadline"></span>
@@ -14,7 +12,7 @@
           <img src="../../assets/login/password.png" alt="" />
           <input type="password" placeholder="请输入密码" v-model="password" />
         </div>
-      
+
         <!-- 登录按钮 -->
         <div class="btn" @click="setFlag">登录</div>
       </div>
@@ -25,15 +23,28 @@
 
 <script setup>
 //导入
-import Header from "./Header.vue";
-import { useRouter, useRoute } from "vue-router";
+import { login } from "../../api/authority";
+import { useRouter } from "vue-router";
+import { ElMessage } from "element-plus";
+import { ref } from "vue";
 const $router = useRouter();
-let username = "1111";
-let password = "2222";
+
+let username = ref();
+let password = ref();
 
 const setFlag = () => {
-  localStorage.setItem("isLogin", 1);
-   $router.replace("/");
+  login(username.value, password.value)
+    .then((res) => {
+      ElMessage.success("登陆成功");
+      localStorage.setItem("isLogin", 1);
+      localStorage.setItem("token", res.token);
+      $router.push({
+        path: "/",
+      });
+    })
+    .catch(() => {
+      ElMessage.error("用户名或密码错误，请重新登录");
+    });
 };
 </script>
 
@@ -45,6 +56,29 @@ const setFlag = () => {
   height: 100%;
   background-size: cover;
 }
+/* .loginbg1 {
+  position: absolute;
+  left: 50rem;
+  top: 45rem;
+  width: 30rem;
+  height: 50rem;
+  background-image: url(../../assets/login/decoration1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+} */
+
+/* .loginbg2 {
+  position: absolute;
+  right: 35rem;
+  top: 45rem;
+  width: 40rem;
+  height: 40rem;
+  background-image: url(../../assets/login/decoration2.png);
+  background-repeat: no-repeat;
+  z-index: 1;
+} */
+
 .loginBox {
   width: 62rem;
   height: 50rem;
