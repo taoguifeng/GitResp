@@ -3,13 +3,12 @@
     <el-container class="box">
       <!-- 左侧菜单栏 -->
       <el-aside class="el-aside">
-        <h1 class="logoBox">VUE-ADMIN</h1>
         <el-menu
-          active-text-color="#ffd04b"
-          background-color="#545c64"
+          active-text-color="#409EFF"
+          background-color="#304156"
           class="el-menu-vertical-demo"
           default-active="2"
-          text-color="#fff"
+          text-color="rgb(191, 203, 217)"
           :router="true"
         >
           <template v-for="item in asideMenu">
@@ -18,7 +17,7 @@
               <el-sub-menu :index="item.title" :key="item.title">
                 <!-- 一级菜单标题 -->
                 <template #title>
-                  <el-icon><document /></el-icon>
+                  <el-icon><IconMenu /></el-icon>
                   <span>{{ item.title }}</span>
                 </template>
                 <!-- 二级菜单标题 -->
@@ -39,7 +38,7 @@
                 :key="item.title"
                 @click="() => handleMenuItem(item)"
               >
-                <el-icon><document /></el-icon>
+                <el-icon><IconMenu /></el-icon>
                 <span>{{ item.title }}</span>
               </el-menu-item>
             </template>
@@ -53,18 +52,15 @@
           <el-menu
             class="el-menu-demo"
             mode="horizontal"
-            background-color="#545c64"
-            text-color="#fff"
+            background-color="#fff"
+            text-color="#333"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="1" class="fr">滕禹鑫</el-menu-item>
             <el-sub-menu index="2" class="fr">
               <template #title class="fr">我的工作台</template>
-              <el-menu-item index="2-1">我的消息</el-menu-item>
-              <el-menu-item index="2-2">设置</el-menu-item>
-              <el-menu-item index="2-3" @click="exitLogin"
-                >退出登陆</el-menu-item
-              >
+              <el-menu-item index="2-3" @click="exitLogin">
+                退出登陆
+              </el-menu-item>
             </el-sub-menu>
           </el-menu>
         </el-header>
@@ -72,6 +68,7 @@
         <!-- 主体模块：标签页 + 当前路由内容 -->
         <el-main class="el-main">
           <el-tabs
+            v-if="editableTabs.length > 0"
             type="border-card"
             v-model="activeTabName"
             class="demo-tabs"
@@ -111,12 +108,7 @@ export default {
       //当前选项卡
       activeTabName: "home",
       //需要显示的标签数组
-      editableTabs: [
-        {
-          title: "首页",
-          index: "home",
-        },
-      ],
+      editableTabs: [],
       //左侧菜单选项配置
       asideMenu: sidebar,
     };
@@ -162,6 +154,7 @@ export default {
       }
       this.$router.push("/" + tabPaneName);
     },
+
     //(1)移除标签，（2）返回前一个路由
     //删除: 需要当前索引 ，设置路由和高亮，上一个对象的index
     handleRemove(tabPaneName) {
@@ -182,6 +175,7 @@ export default {
       //删除当前关闭的路由标签
       this.editableTabs.splice(eleIndex, 1);
     },
+
     //退出登陆
     exitLogin() {
       ElMessageBox.confirm("真的要退出登陆吗?", "提示", {
@@ -191,6 +185,7 @@ export default {
       })
         .then(() => {
           localStorage.removeItem("isLogin");
+          localStorage.removeItem("token");
           this.$router.push("/login");
         })
         .catch(() => {
@@ -208,6 +203,7 @@ export default {
   left: 30px;
   font-size: 24px;
   color: #fff;
+  background: #fff;
 }
 
 .box {
@@ -236,9 +232,14 @@ export default {
 }
 
 .el-aside {
-  width: 240px;
-  background: #545c64;
-  padding-top: 58px;
+  width: 200px;
+  background: #304156;
+
+  /* padding-top: 58px; */
+}
+
+.el-aside::-webkit-scrollbar {
+  display: none;
 }
 
 /* 标签页样式 */
