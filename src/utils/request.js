@@ -5,8 +5,7 @@ const request = axios.create({
 });
 
 request.interceptors.request.use((config) => {
-  config.headers["Authorization"] =
-    "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjIxMjQxMjYsInN1YiI6ImFkbWluIiwiaWF0IjoxNjYxNTE5MzI2OTY1fQ.bVvfNittTLLImYCc9iP5hB67M6Yyf95y6DDZyiBH7ZtKYKwY5CI9HV_pGb466sA2mhu5X410RIZn5urfw40yjA";
+  config.headers["Authorization"] = localStorage.getItem("token");
 
   if (config.method == "post") {
     config.headers["Content-Type"] = "application/json;charset=UTF-8";
@@ -23,6 +22,5 @@ request.interceptors.response.use((response) => {
     return res;
   }
 });
-
 
 export default request;
