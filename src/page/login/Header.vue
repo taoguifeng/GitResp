@@ -21,22 +21,6 @@ export default {
 }
 </script>
 
-<style>
-.titlebg{
-    position: absolute;
-    top: 0rem;
-    left: 4rem;
-    width: 247.6rem;
-    height: 13.2rem;
-    text-align: center;
-    z-index: 1;
-}
-.title{
-    position: absolute;
-    top: 0.5rem;
-    left: -2rem;
-    width: 254.6rem;
-    text-align: center;
-    z-index: 2;
-}
+<style lang="scss">
+@import '../../../scss/login.scss'
 </style>
