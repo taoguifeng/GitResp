@@ -196,63 +196,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.logoBox {
-  position: absolute;
-  top: 18px;
-  left: 30px;
-  font-size: 24px;
-  color: #fff;
-  background: #fff;
-}
-
-.box {
-  width: 100vw;
-  height: 100vh;
-}
-.header {
-  padding: 0;
-  height: 58px;
-}
-/* 将消息中心和我的控制台摆放在最右侧 */
-.el-menu--horizontal {
-  justify-content: flex-end;
-}
-
-/* 去除默认的边框样式 */
-.el-header .el-menu {
-  border-bottom: none;
-}
-.el-aside .el-menu {
-  border-right: none;
-}
-
-.el-main {
-  background-color: #e9eef3;
-}
-
-.el-aside {
-  width: 200px;
-  background: #304156;
-
-  /* padding-top: 58px; */
-}
-
-.el-aside::-webkit-scrollbar {
-  display: none;
-}
-
-.el-tabs--border-card .el-tabs__content {
-  padding: 0;
-}
-.el-tabs--border-card > .el-tabs__content {
-  padding: 0px;
-}
-.el-main .el-tabs__content {
-  padding: 0 !important;
-}
-.demo-tabs > .el-tabs__content {
-  background-color: brown;
-  padding: 0 !important;
-}
+<style lang="scss" scoped>
+  @import '../../scss/mainlayout.scss'
 </style>
